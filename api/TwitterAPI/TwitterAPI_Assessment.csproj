@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DataStorage\**" />
+    <Compile Remove="Model\**" />
+    <Content Remove="DataStorage\**" />
+    <Content Remove="Model\**" />
+    <EmbeddedResource Remove="DataStorage\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <None Remove="DataStorage\**" />
+    <None Remove="Model\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.CacheOutput" Version="1.0.11.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessModel\API.BusinessModel.csproj" />
+    <ProjectReference Include="..\Domain\API.Domain.csproj" />
+    <ProjectReference Include="..\Interfaces\API.Interfaces.csproj" />
+  </ItemGroup>
+
+
+</Project>
