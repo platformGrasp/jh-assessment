@@ -1,7 +1,7 @@
 ﻿using System.Net;
-using API.Interfaces.Builders;
+using Console_API_Client.Interfaces;
 
-namespace API.Business.Builders
+namespace Console_API_Client.Infrastructure
 {
     public class HttpClientBuilder: IHttpClientApiBuilder
     {

@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Interfaces", "Interface
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwitterAPI_Assessment", "TwitterAPI\TwitterAPI_Assessment.csproj", "{8C4DC5BD-D704-4A05-A93C-9679ED027E3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.BusinessModel", "BusinessModel\API.BusinessModel.csproj", "{81D25F2C-48AE-49B4-A53C-2111D9D13D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Business", "BusinessModel\API.Business.csproj", "{81D25F2C-48AE-49B4-A53C-2111D9D13D0A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests", "DomainTests\IntegrationTests.csproj", "{C846B4C4-91A2-4A42-8950-D8146311B3D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console_API_Client", "API_Client\Console_API_Client.csproj", "{F3DD957E-5CF2-4E60-85D2-B1F302CBCD08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{C846B4C4-91A2-4A42-8950-D8146311B3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C846B4C4-91A2-4A42-8950-D8146311B3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C846B4C4-91A2-4A42-8950-D8146311B3D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3DD957E-5CF2-4E60-85D2-B1F302CBCD08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DD957E-5CF2-4E60-85D2-B1F302CBCD08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DD957E-5CF2-4E60-85D2-B1F302CBCD08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DD957E-5CF2-4E60-85D2-B1F302CBCD08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

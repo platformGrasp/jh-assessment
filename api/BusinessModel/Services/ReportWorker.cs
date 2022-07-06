@@ -2,7 +2,7 @@
 using API.Interfaces;
 using API.Interfaces.Services;
 
-namespace API.BusinessModel.Services
+namespace API.Business.Services
 {
     public class ReportWorker : IReportWorker
     {

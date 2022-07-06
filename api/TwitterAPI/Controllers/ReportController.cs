@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
-using API.BusinessModel.Model;
+using API.Business.Model;
 using API.Interfaces.Factory;
 using API.Interfaces.Model;
 using Microsoft.AspNetCore.Mvc;

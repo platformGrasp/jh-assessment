@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BusinessModel\API.BusinessModel.csproj" />
+    <ProjectReference Include="..\BusinessModel\API.Business.csproj" />
     <ProjectReference Include="..\Domain\API.Domain.csproj" />
     <ProjectReference Include="..\Interfaces\API.Interfaces.csproj" />
   </ItemGroup>

@@ -1,6 +1,6 @@
-using API.BusinessModel.Builders;
-using API.BusinessModel.Factory;
-using API.BusinessModel.Services;
+using API.Business.Builders;
+using API.Business.Factory;
+using API.Business.Services;
 using API.Domain;
 using API.Interfaces;
 using API.Interfaces.Builders;

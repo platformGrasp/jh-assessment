@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using API.BusinessModel.Extensions;
+using API.Business.Extensions;
 using API.Domain.Model.ApiModel;
 using API.Interfaces;
 using API.Interfaces.Builders;
@@ -12,7 +12,7 @@ using API.Interfaces.Factory;
 using API.Interfaces.Model;
 using API.Interfaces.Services;
 
-namespace API.BusinessModel.Services
+namespace API.Business.Services
 {
     public class ApiFacade: IApiFacade
     {

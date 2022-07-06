@@ -1,5 +1,5 @@
 ﻿using System;
-using API.BusinessModel.Constants;
+using API.Business.Constants;
 using API.Interfaces.Model;
 using API.Interfaces.Services;
 using Microsoft.AspNetCore.SignalR;

@@ -1,4 +1,4 @@
-﻿namespace API.BusinessModel.Constants
+﻿namespace API.Business.Constants
 {
     public static class HubConstants
     {

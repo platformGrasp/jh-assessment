@@ -1,8 +1,8 @@
-﻿using API.BusinessModel.Model;
+﻿using API.Business.Model;
 using API.Domain.Model.ApiModel;
 using API.Interfaces.Model;
 
-namespace API.BusinessModel.Extensions
+namespace API.Business.Extensions
 {
     public static class ModelConverter
     {

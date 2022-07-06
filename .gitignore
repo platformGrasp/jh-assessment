@@ -87,3 +87,5 @@ Assurant.Portals.Global.AUL.DataAccess.Test/obj/Release/Assurant.Portals.Global.
 /api/DomainTests/obj
 /api/TwitterAPI.sln.DotSettings.user
 /api/BusinessModel/bin/Debug/netstandard2.0
+/api/API_Client/bin/Debug/netcoreapp3.1
+/api/API_Client/obj

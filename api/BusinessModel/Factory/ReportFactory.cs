@@ -3,7 +3,7 @@ using API.Interfaces.Factory;
 using API.Interfaces.Model;
 using API.Interfaces.Services;
 
-namespace API.BusinessModel.Factory
+namespace API.Business.Factory
 {
     public class ReportFactory : IReportFactory
     {

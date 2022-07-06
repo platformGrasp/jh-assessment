@@ -1,19 +1,15 @@
 ﻿using System.Net;
-using API.Interfaces;
-using API.Interfaces.Builders;
-using API.Interfaces.Factory;
+using Console_API_Client.Interfaces;
 
-namespace API.Business.Factory
+namespace Console_API_Client.Infrastructure
 {
     public class HttpFactory: IHttpFactory
     {
-        private readonly IAppConfiguration _appConfiguration;
         private readonly IHttpClientApiBuilder _httpClientApiBuilder;
 
-        public HttpFactory(IAppConfiguration appConfiguration, IHttpClientApiBuilder httpClientApiBuilder)
+        public HttpFactory()
         {
-            _appConfiguration = appConfiguration;
-            _httpClientApiBuilder = httpClientApiBuilder;
+            _httpClientApiBuilder = new HttpClientBuilder();
         }
 
         public HttpWebRequest MakeGetWebRequest(string url)
@@ -21,7 +17,6 @@ namespace API.Business.Factory
             HttpWebRequest webRequest = _httpClientApiBuilder
                 .SetWebRequest(url)
                 .SetTimeout(60000)
-                .AddHeader("Authorization", $"Bearer {_appConfiguration.BearerToken}")
                 .SetMethod("GET")
                 .MakeWebRequest();
             return webRequest;

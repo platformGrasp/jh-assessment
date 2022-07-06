@@ -1,6 +1,6 @@
 ﻿using API.Interfaces.Model;
 
-namespace API.BusinessModel.Model
+namespace API.Business.Model
 {
     public class PublicMetricsBo : IPublicMetricsBo
     {

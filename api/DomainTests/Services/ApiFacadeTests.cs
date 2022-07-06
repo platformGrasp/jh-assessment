@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace IntegrationTests.Services
 {
     [TestClass()]
-    public class TwitterApiFacadeTests : IntegrationTestsBase
+    public class ApiFacadeTests : IntegrationTestsBase
     {
         [TestMethod()]
         public void GetSearchStreamTest()

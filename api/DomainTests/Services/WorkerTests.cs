@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace IntegrationTests.Services
 {
     [TestClass()]
-    public class TwitterUnitOfWorkTests : IntegrationTestsBase
+    public class WorkerTests : IntegrationTestsBase
     {
         [TestMethod()]
         public void ProcessTwitterStreamTest()
@@ -18,9 +18,9 @@ namespace IntegrationTests.Services
             CancellationToken token = tokenSource.Token;
             var task = Task.Run(() =>
             {
-                var twitterUnitOfWork = ServiceProvider.GetService<IWorker>();
-                twitterUnitOfWork.Should().NotBeNull();
-                twitterUnitOfWork.ProcessStreamAsync();
+                var worker = ServiceProvider.GetService<IWorker>();
+                worker.Should().NotBeNull();
+                worker.ProcessStreamAsync();
             }, token);
             Func<Task> f = async () => { task.Wait(10000, token); };
             f.Should().NotThrowAsync("Running as expected");

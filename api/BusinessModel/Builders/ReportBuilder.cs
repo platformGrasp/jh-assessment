@@ -1,8 +1,8 @@
-﻿using API.BusinessModel.Model;
+﻿using API.Business.Model;
 using API.Interfaces.Builders;
 using API.Interfaces.Model;
 
-namespace API.BusinessModel.Builders
+namespace API.Business.Builders
 {
     public class ReportBuilder : IReportBuilder
     {
