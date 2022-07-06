@@ -1,0 +1,9 @@
+.jp-header {
+  margin-left:0px;
+}
+
+.jp-crop {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

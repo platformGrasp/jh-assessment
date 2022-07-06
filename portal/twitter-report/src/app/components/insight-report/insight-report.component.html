@@ -1,39 +1,73 @@
-<p>
-  <ngb-alert type="warning" [dismissible]="false">{{ model.length }} in the queue</ngb-alert>
-</p>
-<p>
-  <ngb-alert type="warning" [dismissible]="false">Average tweets per minute {{ tweetsPerMinutesReport }}</ngb-alert>
-</p>
-<p>
-  <ngb-alert type="warning" [dismissible]="false">Average tweets per seconds {{ tweetsPerSecondsReport }}</ngb-alert>
-</p>
-<p>
-  <ngb-alert type="info" [dismissible]="false">Showing only 20 records from the queue for testing porpoise</ngb-alert>
-</p>
 
-<div class="container-fluid">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Twitter ID</th>
-        <th scope="col">Twitter Text</th>
-        <th scope="col">Tweet Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of model.slice(0, 20) ; index as i">
-        <th scope="row">{{ item.id }}</th>
-        <td>
-          {{ item.text }}
-        </td>
-        <td>
-          <button class="btn btn-lg btn-outline-primary" (click)="open(content, item)">See twitter details</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<header class="p-3 bg-dark text-white">
+  <div class="container jp-header">
+
+    <div class="text-end">
+      Local Hour {{ now | date:'HH:mm:ss a'}}
+    </div>
+
+    <div class="text-end">
+      Elapsed time {{ duration | number: '1.0-2' }} min
+    </div>
+  </div>
+</header>
+<br/>
+<p>
+  <ngb-alert type="info" [dismissible]="false">Showing only {{subModel.length}} records from the queue for testing porpoise</ngb-alert>
+</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      Amount of tweets in the queue
+    </div>
+    <div class="col-sm">
+      Average tweets per minute
+    </div>
+    <div class="col-sm">
+      Average tweets per seconds
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm" *ngIf="latestReport">
+      {{ latestReport.tweetsAmount }}
+    </div>
+    <div class="col-sm" *ngIf="latestReport">
+      {{ latestReport.tweetsPerMinutes }}
+    </div>
+    <div class="col-sm" *ngIf="latestReport">
+      {{ latestReport.tweetsPerSecond }}
+    </div>
+  </div>
+
 </div>
 
+<br/>
+
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Twitter ID</th>
+          <th scope="col">Twitter Text</th>
+          <th scope="col">Tweet Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of subModel ; index as i">
+          <td width="200px">{{ item.id }}</td>
+          <td class="jp-crop" style="width: 30px ;">{{ item.text }}</td>
+          <td width="200px"><button class="btn btn-primary" (click)="open(content, item)">See twitter details</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <p class="col-md-4 mb-0 text-muted">© 2022 Michael Quintela</p>
+</footer>
 
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">

@@ -33,7 +33,7 @@ namespace API.BusinessModel.Builders
             return new ReportBo
             {
                 TweetsPerMinutes = _tweetsPerMinutesReport,
-                TweetsPerSecondReport = _tweetsPerSecondReport,
+                TweetsPerSecond = _tweetsPerSecondReport,
                 TweetsAmount = _tweetsAmount
             };
         }
