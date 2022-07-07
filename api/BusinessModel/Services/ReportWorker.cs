@@ -8,6 +8,7 @@ namespace API.Business.Services
     {
         private readonly ICache _cache;
         private readonly DateTime _initTime;
+
         public ReportWorker(ICache cache)
         {
             _initTime = DateTime.Now;

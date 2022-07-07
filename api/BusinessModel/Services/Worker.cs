@@ -7,6 +7,7 @@ using API.Domain.Model.ApiModel;
 using API.Interfaces;
 using API.Interfaces.Model;
 using API.Interfaces.Services;
+using Microsoft.Extensions.Logging;
 
 namespace API.Business.Services
 {
@@ -14,6 +15,7 @@ namespace API.Business.Services
     {
         private readonly ICache _cache;
         private readonly IApiFacade _twitterApiFacade;
+        private readonly ILogger _logger;
 
         void HandleCustomEvent(object sender, string data)
         {
@@ -24,7 +26,7 @@ namespace API.Business.Services
                 var cacheKey = $"{CacheConstants.TWEET}{tweetBo.Id}";
                 _cache.Set(cacheKey, tweetBo);
                 OnStreamTweetProcessed(tweetBo);
-                Console.WriteLine(data);
+                _logger.LogInformation(data);
             }
         }
 
@@ -33,8 +35,9 @@ namespace API.Business.Services
             OnStreamError(e);
         }
 
-        public Worker(ICache cache, IApiFacade twitterApiFacade, IReportWorker streamResponseBuilder)
+        public Worker(ICache cache, IApiFacade twitterApiFacade, ILogger<Worker> logger)
         {
+            _logger = logger;
             _cache = cache;
             _twitterApiFacade = twitterApiFacade;
             _twitterApiFacade.StreamReadEvent += HandleCustomEvent;

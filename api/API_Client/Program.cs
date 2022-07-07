@@ -77,8 +77,13 @@ namespace Console_API_Client
                 webRequest.Abort();
             }
 
-            ServiceResult<ReportBo> report = JsonSerializer.Deserialize<ServiceResult<ReportBo>>(jsonText);
-            return report?.result;
+            if (!string.IsNullOrEmpty(jsonText))
+            {
+                ServiceResult<ReportBo> report = JsonSerializer.Deserialize<ServiceResult<ReportBo>>(jsonText);
+                return report?.result;
+            }
+
+            return new ReportBo();
         }
     }
 }

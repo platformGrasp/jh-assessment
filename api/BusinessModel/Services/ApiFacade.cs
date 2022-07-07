@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 using API.Business.Extensions;
 using API.Domain.Model.ApiModel;
 using API.Interfaces;
-using API.Interfaces.Builders;
 using API.Interfaces.Factory;
 using API.Interfaces.Model;
 using API.Interfaces.Services;
+using Microsoft.Extensions.Logging;
 
 namespace API.Business.Services
 {
     public class ApiFacade: IApiFacade
     {
         private readonly IAppConfiguration _appConfiguration;
-        readonly IHttpFactory _httpFactory;
-
+        private readonly IHttpFactory _httpFactory;
         private event EventHandler<string> StreamRead;
         private event EventHandler<Exception> StreamError;
+        private readonly ILogger _logger;
 
         public event EventHandler<string> StreamReadEvent
         {
@@ -34,10 +34,11 @@ namespace API.Business.Services
             remove => StreamError -= value;
         }
 
-        public ApiFacade(IAppConfiguration appConfiguration, IHttpClientApiBuilder httpClientApiBuilder, IHttpFactory httpFactory)
+        public ApiFacade(IAppConfiguration appConfiguration, IHttpFactory httpFactory, ILogger<ApiFacade> logger)
         {
             _appConfiguration = appConfiguration;
             _httpFactory = httpFactory;
+            _logger = logger;
         }
 
         IDataResponseBo IApiFacade.GetTwitterDetail(string id)
@@ -55,7 +56,7 @@ namespace API.Business.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                _logger.LogError(ex,ex.Message);
                 OnStreamError(ex);
             }
             finally
@@ -88,7 +89,7 @@ namespace API.Business.Services
             }
             catch (WebException ex)
             {
-                Console.WriteLine(ex.Message);
+                _logger.LogError(ex, ex.Message);
                 OnStreamError(ex);
             }
             finally
@@ -98,7 +99,6 @@ namespace API.Business.Services
 
             return Task.CompletedTask;
         }
-
 
         protected virtual void OnStreamRead(string e)
         {
