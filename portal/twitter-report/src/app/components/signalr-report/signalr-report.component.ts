@@ -1,4 +1,3 @@
-import * as moment from 'moment';
 import { Component, OnInit } from '@angular/core';
 import { SignalRService } from '../../services/signal-r.service';
 import { StreamDataResponse } from 'src/app/model/stream-data-response';
@@ -14,7 +13,6 @@ export class SignalrReportComponent implements OnInit {
   constructor(private readonly _signalRService: SignalRService) { }
 
   ngOnInit(): void {
-    const beforeNow = moment();
     this._signalRService.transferChartDataListenerFromSignalR().subscribe(data =>{
       this.model.push(data);
       console.warn(data);

@@ -8,7 +8,6 @@ import { SignalRService } from './services/signal-r.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'twitter-report';
   constructor(public signalRService: SignalRService) { }
   ngOnInit() {
     this.signalRService.startConnection();

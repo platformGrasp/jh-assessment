@@ -7,16 +7,25 @@ using System.Timers;
 using Console_API_Client.Infrastructure;
 using Console_API_Client.Interfaces;
 using Console_API_Client.Model;
+using Microsoft.Extensions.Configuration;
 
 namespace Console_API_Client
 {
     class Program
     {
-        private static System.Timers.Timer _aTimer;
+        private static Timer _aTimer;
+        private static string apiUrl;
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"Press Enter to pull report");
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false);
+
+            IConfiguration config = builder.Build();
+            apiUrl = config["api_url"];
+
+            Console.WriteLine("Press Enter to pull report");
             SetTimer();
             string inp;
             do
@@ -28,7 +37,7 @@ namespace Console_API_Client
         private static void SetTimer()
         {
             // Create a timer with a two second interval.
-            _aTimer = new System.Timers.Timer(2000);
+            _aTimer = new Timer(2000);
             // Hook up the Elapsed event for the timer. 
             _aTimer.Elapsed += OnTimedEvent;
             _aTimer.AutoReset = true;
@@ -50,7 +59,7 @@ namespace Console_API_Client
         static ReportBo PullReport()
         {
             IHttpFactory factory = new HttpFactory();
-            var webRequest = factory.MakeGetWebRequest("https://localhost:5001/Report");
+            var webRequest = factory.MakeGetWebRequest($"{apiUrl}/Report");
             string jsonText = "";
             try
             {
@@ -69,7 +78,7 @@ namespace Console_API_Client
             }
 
             ServiceResult<ReportBo> report = JsonSerializer.Deserialize<ServiceResult<ReportBo>>(jsonText);
-            return report.result;
+            return report?.result;
         }
     }
 }
