@@ -1,5 +1,5 @@
 
-# TwitterAssessment
+# Jack Henry Assessment
 
 **Portal Application**
  - The API comes with a console test application that connects to the API and pulls the report every 2 seconds, 
