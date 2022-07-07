@@ -10,7 +10,7 @@
    URL is in the environment file.
  - To retrieve continuous messages from the backed API, the angular uses ***Signal-R***, it is highly recommended to run the API first, as   
    resilience reconnection is not implemented per time constraints.
- - Would you mind noticing the UI only shows the first 20 tweets as per 
+ - Would you mind noticing the UI only shows the first 10 tweets as per 
    UI constraints, but is there a continuous data flow in the console   
    log (Warning View)
  - See the Twitter details link does an API call in the backed; I am   
