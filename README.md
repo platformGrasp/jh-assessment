@@ -1,10 +1,11 @@
 
-# TwitterAssessment
+# Jack Henry Assessment
 
 **Portal Application**
-
- - The UI application uses angular; please make sure before running the
-   code the first time ***run npm install***.
+ - The API comes with a console test application that connects to the API and pulls the report every 2 seconds, 
+   while the API asynchronously processes the twitter api stream.
+ - The challenge comes with a SPA application to have a better UI to show the full capability of the API. 
+   The UI application uses angular; please ensure before running the code the first time ***run npm install***.
  - The Angular application connects to an API in the backend; the API
    URL is in the environment file.
  - To retrieve continuous messages from the backed API, the angular uses ***Signal-R***, it is highly recommended to run the API first, as   
