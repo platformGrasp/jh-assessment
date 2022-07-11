@@ -1,4 +1,5 @@
 ﻿using System;
+using API.Business.Constants;
 using API.Interfaces;
 using API.Interfaces.Services;
 
@@ -11,8 +12,8 @@ namespace API.Business.Services
 
         public ReportWorker(ICache cache)
         {
-            _initTime = DateTime.Now;
             _cache = cache;
+            _cache.TryGetValue(CacheConstants.INIT_DATE, out _initTime);
         }
 
         public int TweetsPerMinutesReport()

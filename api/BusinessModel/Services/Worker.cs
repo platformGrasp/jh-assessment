@@ -42,6 +42,7 @@ namespace API.Business.Services
             _twitterApiFacade = twitterApiFacade;
             _twitterApiFacade.StreamReadEvent += HandleCustomEvent;
             _twitterApiFacade.StreamErrorEvent += HandleError;
+            _cache.Set(CacheConstants.INIT_DATE, DateTime.Now);
         }
 
         public event EventHandler<IStreamDataResponseBo> StreamTweetProcessed;
